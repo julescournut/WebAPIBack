@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
+  image: String,
   description: String,
   author: {
     name: String,
@@ -10,6 +11,6 @@ var PostSchema = new Schema({
 });
 
 PostSchema.index({ name: 1});
-let Post = mongoose.model("Post", PostSchema);
+let Post = mongoose.model("Post", PostSchema, "Posts");
 
 export default Post;

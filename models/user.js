@@ -11,7 +11,7 @@ var UserSchema = new Schema({
 });
 
 UserSchema.index({ name: 1 });
-let User = mongoose.model("User", UserSchema);
+let User = mongoose.model("User", UserSchema, "Users");
 User.createIndexes();
 
 export default User;
