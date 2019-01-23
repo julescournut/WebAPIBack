@@ -1,10 +1,13 @@
-import users from './user';
-import posts from './post';
 import express from "express";
 import bodyParser from 'body-parser';
+
 import multer from "multer";
 import storage from '../storage'
 import * as image from '../services/image';
+
+import users from './user';
+import posts from './post';
+import login from './login';
 
 const upload = multer({storage:storage});
 const type = upload.single("image");
@@ -15,6 +18,7 @@ routes.use(bodyParser.urlencoded({ extended: true }));
 
 routes.use('/api/v1', users);
 routes.use('/api/v1', posts);
+routes.use('/api/v1', login);
 
 routes.post('/api/v1/upload/image', type, image.postImg);
 routes.get('/api/v1/upload/image/:file', image.getImg);

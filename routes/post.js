@@ -1,10 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import * as service from '../services/post';
+import verifyJWT_MW from '../middlewares/auth.js'
 
 const posts = express.Router();
 
 posts.use(bodyParser.json());
+posts.all("/posts", verifyJWT_MW);
 
 posts.post("/posts", (req, res) => {
   service.createPost(req.body).then(
