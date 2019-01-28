@@ -1,4 +1,5 @@
 import User from "../models/user";
+
 export async function createUser(user) {
   if (user) {
     if (!user._id) {
@@ -14,4 +15,9 @@ export async function getByPage(page, per_page) {
     .skip(start)
     .limit(parseInt(per_page));
   return result;
+}
+
+export async function getByEmail(email) {
+  let user = await User.findOne({ email: email });
+  return user;
 }
