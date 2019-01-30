@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from 'body-parser';
+import cors from '../middlewares/cross-domain'
 
 import multer from "multer";
 import storage from '../storage'
@@ -15,6 +16,7 @@ const routes = express.Router();
 
 routes.use(bodyParser.json());
 routes.use(bodyParser.urlencoded({ extended: true }));
+routes.use(cors);
 
 routes.use('/api/v1', users);
 routes.use('/api/v1', posts);
