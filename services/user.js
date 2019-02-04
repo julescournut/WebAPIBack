@@ -1,9 +1,11 @@
 import User from "../models/user";
+import { createSHA256_Hash } from '../libs/auth.js';
 
 export async function createUser(user) {
   if (user) {
     if (!user._id) {
       console.log("[user] - Creation");
+      user.password = createSHA256_Hash(user.password);
       return User.create({ ...user });
     }
   }

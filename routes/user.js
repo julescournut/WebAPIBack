@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import * as service from '../services/user';
+import verifyJWT_MW from '../middlewares/auth.js'
 
 const users = express.Router();
 
@@ -16,6 +17,8 @@ users.post("/users", (req, res) => {
     }
   );
 });
+
+users.all("/users", verifyJWT_MW);
 
 users.get("/users", (req, res) => {
   service

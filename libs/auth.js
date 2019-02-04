@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import _ from "lodash";
+import crypto from 'crypto';
 
 export async function verifyJWTToken(token) {
   try {
@@ -46,4 +47,8 @@ export function createJWToken(details) {
   );
 
   return token;
+}
+
+export function createSHA256_Hash(pwd) {
+  return crypto.createHash('sha256').update(pwd).digest('base64');
 }
