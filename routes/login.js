@@ -19,7 +19,7 @@ routes.post("/login", (req, res) => {
       });
     } else {
       res.status(401).json({
-        message: "Login ou mot de passe incorrecte."
+        message: "Login ou mot de passe incorrect."
       });
     }
   });

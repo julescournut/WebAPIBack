@@ -81,3 +81,6 @@ typings/
 
 .idea/*
 upload/*
+.nyc_output
+coverage
+*.lcov

@@ -9,3 +9,6 @@ branches:
     - develop
 before_install:
   - openssl aes-256-cbc -K $encrypted_73e15c93fb52_key -iv $encrypted_73e15c93fb52_iv -in .env.enc -out .env -d
+script:
+  - npm run test
+  - npm run report-coverage
