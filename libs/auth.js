@@ -52,3 +52,10 @@ export function createJWToken(details) {
 export function createSHA256_Hash(pwd) {
   return crypto.createHash('sha256').update(pwd).digest('base64');
 }
+
+export function getJWTPayloadData(req) {
+  let token = req.headers.authorization;
+  let decoded = jwt.decode(token, {complete: true});
+  let payload = decoded.payload.data;
+  return payload;
+}

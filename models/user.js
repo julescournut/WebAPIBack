@@ -2,14 +2,25 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true
+  },
   pseudo: {
     type: String,
     index: true,
-    unique: true
+    unique: true,
+    required: true
   },
-  email: String,
-  password: String,
+  email: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
 });
 
 UserSchema.index({ name: 1 });
