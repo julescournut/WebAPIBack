@@ -7,6 +7,10 @@ var PostSchema = new Schema({
   author: {
     name: String,
     ref: { type: Schema.Types.ObjectId, ref: "User" },
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 

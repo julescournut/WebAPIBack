@@ -16,7 +16,8 @@ export async function getByPage(page, per_page) {
       model: "User"
     })
     .skip(start)
-    .limit(parseInt(per_page));
+    .limit(parseInt(per_page))
+    .sort('-date');
   return result;
 }
 
@@ -28,6 +29,7 @@ export async function getByPage_User(page, per_page, id) {
       model: "User"
     })
     .skip(start)
-    .limit(parseInt(per_page));
+    .limit(parseInt(per_page))
+    .sort('-date');
   return result;
 }

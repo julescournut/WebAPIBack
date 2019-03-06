@@ -19,6 +19,11 @@ export async function getByPage(page, per_page) {
   return result;
 }
 
+export async function getCurrentUser(id) {
+  let result = await User.findOne({ _id: id }).select("-password");
+  return result;
+}
+
 export async function getByEmail(email) {
   let user = await User.findOne({ email: email });
   return user;

@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
+  image: String,
   name: {
     type: String,
     required: true

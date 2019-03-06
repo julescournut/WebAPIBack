@@ -84,3 +84,4 @@ upload/*
 .nyc_output
 coverage
 *.lcov
+uploads/

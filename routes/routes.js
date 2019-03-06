@@ -23,7 +23,7 @@ routes.use('/api/v1', posts);
 routes.use('/api/v1', login);
 
 routes.post('/api/v1/upload/image', type, image.postImg);
-routes.get('/api/v1/upload/image/:file', image.getImg);
+routes.get('/api/v1/download/image/:file', image.getImg);
 
 routes.get('/', (req, res) => {
   res.status(200).json({ message: 'Connected!' });
